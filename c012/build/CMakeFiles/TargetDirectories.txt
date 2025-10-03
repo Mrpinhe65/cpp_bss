@@ -1,0 +1,3 @@
+/home/mrpinhe/Desktop/cpp_bss/c012/build/CMakeFiles/c012_operator.dir
+/home/mrpinhe/Desktop/cpp_bss/c012/build/CMakeFiles/edit_cache.dir
+/home/mrpinhe/Desktop/cpp_bss/c012/build/CMakeFiles/rebuild_cache.dir

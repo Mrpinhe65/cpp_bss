@@ -5,8 +5,6 @@ class Complex;                                       // 先声明
 ostream &operator<<(ostream &out, const Complex &o); // 先声明
 
 class Complex {
-  friend Complex operator+(int i, const Complex &c);
-
 public:
   friend ostream &operator<<(ostream &out, const Complex &o); // 先声明
 public:
@@ -71,9 +69,6 @@ ostream &operator<<(ostream &out, const Complex &o) {
   out << "( " << o.m_real << " + " << o.m_imag << "*i)" << endl;
   return out;
 }
-Complex operator+(int i, const Complex &c) {
-  return Complex(i + c.m_real, c.m_imag);
-}
 
 int main(int argc, char *argv[]) {
   cout << "// 运算符重载 operator " << endl;
@@ -103,14 +98,8 @@ int main(int argc, char *argv[]) {
   Complex c4(100, 100);
   c3 = c4 + 10;      // 重载运算符+
   c3.PrintComplex(); // 类内成员函数实现打印
-
-  cout << "\n// 友元函数friend Complex operator+(int i,const Complex&c);实现 "
-          "c3 = 10 + c4"
-       << endl;
-  c3 = 10 + c4;      // 加法交换原则 但重载不支持这样的交换 可用友元函数实现
-  c3.PrintComplex(); // 类内成员函数实现打印
+  // c3=10+c4; // 加法交换原则 但重载不支持这样的交换
   Int x;
-
   Int y(3);
   Int z(7);
 

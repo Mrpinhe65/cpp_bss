@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/c012_operator.dir/src/c012_operator.cpp.o CMakeFiles/c012_operator.dir/src/main.cpp.o -o c012_operator 
