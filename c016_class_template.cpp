@@ -26,6 +26,8 @@ template <typename Type> class List {
 public:
   List();
   ~List() {}
+  bool pushBack(Type x);
+  void showList() const;
 
 private:
   ListNode<Type> *first;
@@ -39,9 +41,40 @@ template <typename Type> List<Type>::List() {
   last->next = nullptr;
   size = 0;
 }
+template <typename Type> bool List<Type>::pushBack(Type x) {
+  ListNode<Type> *s = (ListNode<Type> *)malloc(sizeof(ListNode<Type>));
+  if (s == nullptr)
+    return false;
+  s->data = x;
+  s->next = nullptr;
 
+  last->next = s;
+  last = s;
+  size++;
+
+  return true;
+}
+
+template <typename Type> void List<Type>::showList() const {
+  ListNode<Type> *p = first->next;
+  while (p != nullptr) {
+    cout << p->data << "->";
+    p = p->next;
+  }
+  cout << "nil" << endl;
+}
 int main(int argc, char *argv[]) {
   cout << "\n// Class template" << endl;
-  List<int> myList;
+
+  List<int> myList_i;
+  for (int i = 0; i < 10; ++i)
+    myList_i.pushBack(i);
+  myList_i.showList();
+
+  List<char> myList_c;
+  for (int i = 65; i < 75; ++i)
+    myList_c.pushBack(i);
+  myList_c.showList();
+
   return 0;
 }
